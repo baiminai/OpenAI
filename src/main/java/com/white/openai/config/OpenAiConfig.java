@@ -13,4 +13,7 @@ public class OpenAiConfig {
 
     private String KEY ="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";
 
+    /*
+    * ascasohoa
+    * */
 }
