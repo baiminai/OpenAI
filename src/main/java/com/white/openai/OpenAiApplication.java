@@ -30,10 +30,16 @@ public class OpenAiApplication {
                 .body(json)
                 .execute()
                 .body();
-        ChatResult chatResult = JSONUtil.toBean(result, ChatResult.class);
-        List<ChatResult.Choices> choices = chatResult.getChoices();
-        for (ChatResult.Choices choice : choices) {
-            System.out.println("回答"+choice.getMessage());
+
+        if (result!=null) {
+            System.out.println(result);
+            ChatResult chatResult = JSONUtil.toBean(result, ChatResult.class);
+            List<ChatResult.Choices> choices = chatResult.getChoices();
+            for (ChatResult.Choices choice : choices) {
+                System.out.println("回答"+choice.getMessage());
+            }
+        }else {
+            System.out.println("空值啊你");
         }
 
         SpringApplication.run(OpenAiApplication.class, args);
