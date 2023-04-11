@@ -8,6 +8,7 @@ import com.white.openai.model.ChatResult;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
@@ -20,11 +21,12 @@ class OpenAiApplicationTests {
         ChatParameters.Messages messages=new ChatParameters.Messages();
         messages.setRole("user");
         messages.setContent("hello");
-        chatParameters.setMessages(messages);
+        List<ChatParameters.Messages> list=new ArrayList<ChatParameters.Messages>();
+        list.add(messages);
+        chatParameters.setMessages(list);
 
         String json = JSONUtil.toJsonStr(chatParameters);
-
-        System.out.println("开始发送请求");
+        System.out.println("开始发送请求"+json);
         String result = HttpRequest.post(OpenAiConfig.URL)
                 .header("Authorization", "Bearer " + new OpenAiConfig().getKEY())
                 .body(json)

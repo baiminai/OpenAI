@@ -7,6 +7,9 @@ import com.white.openai.model.ChatParameters;
 import com.white.openai.model.ChatResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("chat")
 public class Chat {
@@ -15,7 +18,9 @@ public class Chat {
     public ChatResult findUser(@PathVariable ChatParameters.Messages messages){
         ChatParameters chatParameters=new ChatParameters();
         chatParameters.setModel(OpenAiConfig.MODEL);
-        chatParameters.setMessages(messages);
+        List<ChatParameters.Messages> list=new ArrayList<ChatParameters.Messages>();
+        list.add(messages);
+        chatParameters.setMessages(list);
 
         String json = JSONUtil.toJsonStr(chatParameters);
 

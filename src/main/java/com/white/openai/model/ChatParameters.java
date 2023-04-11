@@ -2,6 +2,8 @@ package com.white.openai.model;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ChatParameters {
     /*{
@@ -10,7 +12,7 @@ public class ChatParameters {
 }
 */
     private String model;
-    private Messages Messages;
+    private List<Messages> messages;
     @Data
     public static class Messages {
         private String role;

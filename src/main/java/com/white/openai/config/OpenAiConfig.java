@@ -11,7 +11,7 @@ public class OpenAiConfig {
     public static String URL="https://api.openai.com/v1/chat/completions";
     public static String MODEL= "gpt-3.5-turbo";
 
-    private String KEY ="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";
+    private String KEY ="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";
 
     /*
     * ascasohoa
